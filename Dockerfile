@@ -5,4 +5,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["python", "euler.ipynb"]
+CMD ["python", "euler.py"]

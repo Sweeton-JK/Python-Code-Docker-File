@@ -7,3 +7,5 @@ RUN pip install -r requirements.txt
 COPY . .
 
 CMD ["python", "euler.py"]
+
+EXPOSE 8888

@@ -6,4 +6,4 @@ COPY . .
 
 RUN pip install numpy matplotlib
 
-CMD ["python", "main.py"]
+CMD ["python", "mandelbrot.py"]

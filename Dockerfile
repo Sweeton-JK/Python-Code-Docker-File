@@ -1,9 +1,7 @@
-FROM python:3.8
+FROM python:3.8-slim
 
 WORKDIR /app
 
-COPY kmeans.py .
+COPY . /app
 
-RUN pip install numpy scikit-learn matplotlib
-
-CMD ["python", "kmeans.py"]
+CMD ["python", "factorial.py"]

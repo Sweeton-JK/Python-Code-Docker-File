@@ -1,6 +1,4 @@
-FROM python:3.11
-
-WORKDIR /usr/src/app
+FROM python:3.9
 
 COPY . .
 

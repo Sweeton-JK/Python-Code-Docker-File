@@ -1,20 +1,24 @@
+# kmeans.py
 import numpy as np
+from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
-def plot_mandelbrot_set(xmin, xmax, ymin, ymax, width, height):
-  """Plots the Mandelbrot set to a given image."""
-  c = np.zeros((width, height), dtype=complex)
-  for i in range(width):
-    for j in range(height):
-      c[i, j] = complex(xmin + i * (xmax - xmin) / width, ymin + j * (ymax - ymin) / height)
+np.random.seed(0)
+X = np.random.rand(100, 2)
 
-  z = np.zeros((width, height), dtype=complex)
-  for i in range(100):
-    z = z * z + c
+num_clusters = 3
 
-  plt.imshow(np.abs(z), cmap="hot")
-  plt.colorbar()
-  plt.show()
+kmeans = KMeans(n_clusters=num_clusters)
 
-if __name__ == "__main__":
-  plot_mandelbrot_set(-2.5, 1.5, -2.0, 2.0, 500, 500)
+kmeans.fit(X)
+
+labels = kmeans.labels_
+
+centroids = kmeans.cluster_centers_
+
+for i in range(num_clusters):
+    plt.scatter(X[labels == i, 0], X[labels == i, 1], label=f'Cluster {i + 1}')
+plt.scatter(centroids[:, 0], centroids[:, 1], marker='x', s=200, linewidths=3, color='black', label='Centroids')
+plt.legend()
+plt.title('K-Means Clustering')
+plt.show()

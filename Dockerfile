@@ -1,7 +1,9 @@
-FROM python:3.9
+FROM python:3.8
 
-COPY . .
+WORKDIR /app
 
-RUN pip install numpy matplotlib
+COPY kmeans.py .
 
-CMD ["python", "mandelbrot.py"]
+RUN pip install numpy scikit-learn matplotlib
+
+CMD ["python", "kmeans.py"]

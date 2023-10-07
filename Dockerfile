@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY . /app
 
-CMD ["python", "factorial.py"]
+CMD ["python", "calendar_program.py"]
